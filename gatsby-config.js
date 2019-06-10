@@ -4,8 +4,9 @@ module.exports = {
   siteMetadata: {
     title: `Pancho's`,
     description: `This site is all about Pancho's kooking!`,
-    author: `@Pako`,
+    author: `Pako`,
     lang: `nl`,
+    image: "/images/chef.png",
   },
   plugins: [
     `gatsby-plugin-sass`,

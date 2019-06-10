@@ -23,7 +23,7 @@ const IndexPage = () => {
     }
   `)
   return (
-    <Layout>
+    <Layout lang="nl">
       <SEO title="Home" />
       <>
         {documentToReactComponents(

@@ -5,16 +5,16 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import Layout from "../../components/layout"
 import SEO from "../../components/seo"
 
-const IndexPage = () => {
+const Events = () => {
   const data = useStaticQuery(graphql`
     query {
       allContentfulContent {
         edges {
           node {
-            homeFr {
+            eventsFr {
               json
             }
-            homeNl {
+            eventsNl {
               json
             }
           }
@@ -24,14 +24,14 @@ const IndexPage = () => {
   `)
   return (
     <Layout lang="fr">
-      <SEO title="Home" />
+      <SEO title="events" />
       <>
         {documentToReactComponents(
-          data.allContentfulContent.edges[0].node.homeFr.json
+          data.allContentfulContent.edges[0].node.eventsFr.json
         )}
       </>
     </Layout>
   )
 }
 
-export default IndexPage
+export default Events

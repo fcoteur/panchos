@@ -15,14 +15,13 @@ import Footer from "./footer"
 import "../styles/index.scss"
 import layoutStyles from "./layout.module.scss"
 
-const Layout = ({ children }) => (
+const Layout = ({ children, lang }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
         site {
           siteMetadata {
             title
-            lang
           }
         }
       }
@@ -30,10 +29,7 @@ const Layout = ({ children }) => (
     render={data => (
       <div className={layoutStyles.container}>
         <div className={layoutStyles.content}>
-          <Header
-            siteTitle={data.site.siteMetadata.title}
-            lang={data.site.siteMetadata.lang}
-          />
+          <Header siteTitle={data.site.siteMetadata.title} lang={lang} />
           <main>{children}</main>
           <Footer />
         </div>
@@ -44,6 +40,7 @@ const Layout = ({ children }) => (
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  lang: PropTypes.string.isRequired,
 }
 
 export default Layout

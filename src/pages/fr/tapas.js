@@ -4,17 +4,18 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 import Layout from "../../components/layout"
 import SEO from "../../components/seo"
+import Products from "../../components/products"
 
-const IndexPage = () => {
+const Tapas = () => {
   const data = useStaticQuery(graphql`
     query {
       allContentfulContent {
         edges {
           node {
-            homeFr {
+            tapasFr {
               json
             }
-            homeNl {
+            tapasNl {
               json
             }
           }
@@ -24,14 +25,15 @@ const IndexPage = () => {
   `)
   return (
     <Layout lang="fr">
-      <SEO title="Home" />
+      <SEO title="tapas" />
       <>
         {documentToReactComponents(
-          data.allContentfulContent.edges[0].node.homeFr.json
+          data.allContentfulContent.edges[0].node.tapasFr.json
         )}
       </>
+      <Products lang="fr" />
     </Layout>
   )
 }
 
-export default IndexPage
+export default Tapas

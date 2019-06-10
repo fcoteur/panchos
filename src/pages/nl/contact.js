@@ -23,7 +23,7 @@ const Contact = () => {
     }
   `)
   return (
-    <Layout>
+    <Layout lang="nl">
       <SEO title="contact" />
       <>
         {documentToReactComponents(

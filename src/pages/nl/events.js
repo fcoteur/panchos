@@ -23,7 +23,7 @@ const Events = () => {
     }
   `)
   return (
-    <Layout>
+    <Layout lang="nl">
       <SEO title="events" />
       <>
         {documentToReactComponents(

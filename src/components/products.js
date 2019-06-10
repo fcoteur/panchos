@@ -38,35 +38,38 @@ export default function Products(props) {
 
   return (
     <>
+      {" "}
       <div className={productStyles.filters}>
         <button
+          id="cold"
           onClick={() => {
-            setWarmSelect(true)
-            setColdSelect(true)
+            setColdSelect(!coldSelect)
+            if (!coldSelect) {
+              document.getElementById("cold").style.borderColor = "green"
+            } else {
+              document.getElementById("cold").style.borderColor = "white"
+            }
           }}
         >
-          see all tapas
+          {String.fromCharCode("0x2744")}
         </button>
         <button
+          id="warm"
           onClick={() => {
-            setWarmSelect(false)
-            setColdSelect(true)
+            setWarmSelect(!warmSelect)
+            if (!warmSelect) {
+              document.getElementById("warm").style.borderColor = "green"
+            } else {
+              document.getElementById("warm").style.borderColor = "white"
+            }
           }}
         >
-          cold tapas
-        </button>
-        <button
-          onClick={() => {
-            setWarmSelect(true)
-            setColdSelect(false)
-          }}
-        >
-          warm tapas
+          {String.fromCharCode("0x2668")}
         </button>
       </div>
       <div className={productStyles.products}>
         {data.allContentfulProduct.edges.map(edge => {
-          if (edge.node.cold === coldSelect || edge.node.cold === !warmSelect) {
+          if (edge.node.cold === coldSelect || edge.node.warm === warmSelect) {
             if (lang === "fr") {
               return (
                 <div className={productStyles.product}>
