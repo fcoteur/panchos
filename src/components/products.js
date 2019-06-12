@@ -4,6 +4,8 @@ import { graphql, useStaticQuery } from "gatsby"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 import productStyles from "./products.module.scss"
+import cold from "../images/cold.svg"
+import warm from "../images/warm.svg"
 
 export default function Products(props) {
   const [coldSelect, setColdSelect] = useState(true)
@@ -51,7 +53,7 @@ export default function Products(props) {
             }
           }}
         >
-          {String.fromCharCode("0x2744")}
+          <img src={cold} height="25" alt="cold"></img>
         </button>
         <button
           id="warm"
@@ -64,7 +66,7 @@ export default function Products(props) {
             }
           }}
         >
-          {String.fromCharCode("0x2668")}
+          <img src={warm} height="25" alt="warm"></img>
         </button>
       </div>
       <div className={productStyles.products}>

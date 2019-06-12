@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -7,8 +6,7 @@ import SEO from "../components/seo"
 const Intro = () => (
   <Layout>
     <SEO title="Home" />
-    <Link to="/nl/">Site in het Nederlands</Link> <br />
-    <Link to="/fr/">Site en Francais</Link>
+    <p>imagen o video de entrada? o direct to "home" page in het nederlands?</p>
   </Layout>
 )
 

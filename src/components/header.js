@@ -4,7 +4,7 @@ import React from "react"
 import headerStyles from "./header.module.scss"
 import chef from "../images/chef.png"
 
-const Header = ({ siteTitle, lang }) => (
+const Header = ({ siteTitle, lang, location }) => (
   <header className={headerStyles.header}>
     <h1>
       <Link to="/">
@@ -62,12 +62,30 @@ const Header = ({ siteTitle, lang }) => (
         </div>
         <div className={headerStyles.floatright}>
           <li>
-            <Link className={headerStyles.navItem} to="/nl">
-              NL
+            <Link
+              className={headerStyles.navItem}
+              to={
+                location.pathname !== "/"
+                  ? location.pathname.replace("fr", "nl")
+                  : "/nl/"
+              }
+              activeStyle={{ color: "red" }}
+              partiallyActive={true}
+            >
+              NL{JSON.stringify()}
             </Link>
           </li>
           <li>
-            <Link className={headerStyles.navItem} to="/fr">
+            <Link
+              className={headerStyles.navItem}
+              to={
+                location.pathname !== "/"
+                  ? location.pathname.replace("nl", "fr")
+                  : "/fr/"
+              }
+              activeStyle={{ color: "red" }}
+              partiallyActive={true}
+            >
               FR
             </Link>
           </li>
@@ -80,6 +98,7 @@ const Header = ({ siteTitle, lang }) => (
 Header.propTypes = {
   siteTitle: PropTypes.string,
   lang: PropTypes.string,
+  location: PropTypes.string,
 }
 
 Header.defaultProps = {

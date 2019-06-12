@@ -8,6 +8,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
+import { Location } from "@reach/router"
 
 import Header from "./header"
 import Footer from "./footer"
@@ -15,7 +16,7 @@ import Footer from "./footer"
 import "../styles/index.scss"
 import layoutStyles from "./layout.module.scss"
 
-const Layout = ({ children, lang }) => (
+const Layout = ({ children, lang, props }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -29,10 +30,20 @@ const Layout = ({ children, lang }) => (
     render={data => (
       <div className={layoutStyles.container}>
         <div className={layoutStyles.content}>
-          <Header siteTitle={data.site.siteMetadata.title} lang={lang} />
+          <Location>
+            {locationProps => (
+              <Header
+                siteTitle={data.site.siteMetadata.title}
+                lang={lang}
+                {...locationProps}
+                {...props}
+              />
+            )}
+          </Location>
+
           <main>{children}</main>
-          <Footer />
         </div>
+        <Footer />
       </div>
     )}
   />
