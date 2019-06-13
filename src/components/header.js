@@ -2,7 +2,7 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 import headerStyles from "./header.module.scss"
-import chef from "../images/chef.png"
+import chef from "../images/drawing.svg"
 
 const Header = ({ siteTitle, lang, location }) => (
   <header className={headerStyles.header}>
@@ -12,12 +12,12 @@ const Header = ({ siteTitle, lang, location }) => (
           className={headerStyles.image}
           src={chef}
           alt="chef icon"
-          height="60"
+          height="80"
         />
       </Link>
-      <Link className={headerStyles.title} to="/">
+      {/* <Link className={headerStyles.title} to="/">
         {siteTitle}
-      </Link>
+      </Link> */}
     </h1>
 
     <nav>
