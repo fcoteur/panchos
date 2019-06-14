@@ -81,7 +81,9 @@ export default function Products(props) {
                   />
                   <div>
                     <h5>{edge.node.nameFr}</h5>
-                    {documentToReactComponents(edge.node.descriptionFr.json)}
+                    <div>
+                      {documentToReactComponents(edge.node.descriptionFr.json)}
+                    </div>
                   </div>
                 </div>
               )

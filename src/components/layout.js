@@ -41,7 +41,7 @@ const Layout = ({ children, lang, props }) => (
             )}
           </Location>
 
-          <main>{children}</main>
+          <main className={layoutStyles.main}>{children}</main>
         </div>
         <Footer />
       </div>
